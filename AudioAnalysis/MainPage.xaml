@@ -5,10 +5,31 @@
     xmlns:local="using:AudioAnalysis"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <ComboBox Name="cmbDevices"></ComboBox>
+            <Button Name="btnChangeDevice" Click="btnChangeDevice_Click">Change Device</Button>
+        </StackPanel>
+        <canvas:CanvasControl 
+            Grid.Row="1"
+            Name="AudioCanvas" 
+            Draw="AudioCanvas_Draw" 
+            ClearColor="Black"></canvas:CanvasControl>
     </Grid>
 </Page>
